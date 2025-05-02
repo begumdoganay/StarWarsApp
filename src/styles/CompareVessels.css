@@ -1,0 +1,228 @@
+.compare-container {
+  padding: 1rem 0;
+}
+
+.compare-container h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.comparison-selection {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.selected-vessels, .available-vessels {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.selected-vessels h2, .available-vessels h2 {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.selected-vessels-list, .available-vessels-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.selected-vessel-item, .available-vessel-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: var(--border-radius);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.vessel-info h3 {
+  font-size: 1rem;
+  margin: 0 0 0.3rem 0;
+}
+
+.vessel-info p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.remove-vessel-btn {
+  background-color: rgba(220, 53, 69, 0.1);
+  color: #dc3545;
+  border: 1px solid rgba(220, 53, 69, 0.3);
+  padding: 0.4rem 0.75rem;
+  font-size: 0.85rem;
+  border-radius: var(--border-radius);
+}
+
+.remove-vessel-btn:hover {
+  background-color: rgba(220, 53, 69, 0.2);
+}
+
+.add-vessel-btn {
+  background-color: rgba(40, 167, 69, 0.1);
+  color: #28a745;
+  border: 1px solid rgba(40, 167, 69, 0.3);
+  padding: 0.4rem 0.75rem;
+  font-size: 0.85rem;
+  border-radius: var(--border-radius);
+}
+
+.add-vessel-btn:hover {
+  background-color: rgba(40, 167, 69, 0.2);
+}
+
+.add-vessel-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.no-selection, .no-available {
+  text-align: center;
+  color: var(--text-muted);
+  font-style: italic;
+  padding: 1.5rem 0;
+}
+
+.more-available {
+  text-align: center;
+  padding: 1rem;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: var(--border-radius);
+  margin-top: 1rem;
+}
+
+.more-available p {
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+}
+
+.browse-all-link {
+  color: var(--color-primary);
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+.comparison-table-container {
+  margin-top: 2rem;
+}
+
+.comparison-table-container h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.comparison-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--card-shadow);
+}
+
+.comparison-table th,
+.comparison-table td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.comparison-table th {
+  background-color: rgba(0, 0, 0, 0.3);
+  font-weight: 600;
+  color: var(--text-light);
+}
+
+.comparison-table th:not(:first-child) {
+  text-align: center;
+}
+
+.comparison-table td:not(:first-child) {
+  text-align: center;
+}
+
+.spec-name {
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.comparison-table tr:last-child td {
+  border-bottom: none;
+}
+
+.comparison-table tr:hover {
+  background-color: rgba(255, 255, 255, 0.03);
+}
+
+/* Highlighted best values */
+.comparison-table td.best-value {
+  color: var(--color-success);
+  position: relative;
+}
+
+.comparison-table td.best-value::after {
+  content: '✓';
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  font-size: 0.75rem;
+  color: var(--color-success);
+}
+
+.comparison-legend {
+  margin-top: 1rem;
+  text-align: right;
+}
+
+.legend-item {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 1rem;
+}
+
+.legend-marker {
+  width: 12px;
+  height: 12px;
+  margin-right: 0.5rem;
+  border-radius: 2px;
+}
+
+.legend-marker.best-value {
+  background-color: rgba(40, 167, 69, 0.2);
+  border: 1px solid var(--color-success);
+}
+
+.legend-text {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* Mobile styles */
+@media screen and (max-width: 768px) {
+  .comparison-selection {
+    grid-template-columns: 1fr;
+  }
+  
+  .comparison-table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .comparison-table th,
+  .comparison-table td {
+    padding: 0.75rem 0.5rem;
+    font-size: 0.9rem;
+  }
+}

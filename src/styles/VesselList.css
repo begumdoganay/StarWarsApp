@@ -1,0 +1,82 @@
+.vessel-list-container {
+  padding: 1rem 0;
+}
+
+.vessel-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.vessel-count {
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius);
+  margin: 1rem 0;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.load-more {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.load-more-btn {
+  background-color: var(--color-primary);
+  color: white;
+  padding: 0.7rem 2rem;
+  font-weight: 600;
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+  transition: all var(--transition-speed) ease;
+}
+
+.load-more-btn:hover {
+  background-color: #0069d9;
+  box-shadow: 0 6px 20px rgba(0, 123, 255, 0.4);
+}
+
+.load-more-btn:disabled {
+  background-color: var(--color-gray);
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.no-results {
+  text-align: center;
+  padding: 3rem;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: var(--border-radius);
+  margin: 2rem 0;
+}
+
+.no-results h3 {
+  margin-bottom: 1.5rem;
+  color: var(--text-light);
+}
+
+.no-results button {
+  background-color: var(--color-primary);
+  color: white;
+  padding: 0.7rem 1.5rem;
+}
+
+/* Animation for new vessels loaded */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.vessel-grid > a {
+  animation: fadeIn 0.5s ease forwards;
+}
+
+/* Mobile styles */
+@media screen and (max-width: 768px) {
+  .vessel-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
